@@ -49,6 +49,39 @@ jobs:
      name: MOCHA-test-result
      path: test-results.xml
     
+
+ code-coverage:
+  name: code coverage
+  needs: unit-testing
+  runs-on: ubuntu-latest
+
+  steps:
+  - name: checkout
+    uses: actions/checkout@v7.0.1
+
+  - name: setip node
+    uses: actions/setup-node@v7
+    with:
+     node-version:  ${{ matrix.nodejs_version }}
+    
+  - name: install npm
+    run: npm install
+
+
+  - name: run coverage
+    run: npm run coverage
+
+
+  - name: archive test results
+    uses: actions/upload-artifact@v7.0.1
+    with:
+     name: code-coverage-report
+     path: coverage
+     retention-days: 5
+
+
   
+    
+
 
   
