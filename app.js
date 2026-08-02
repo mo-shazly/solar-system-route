@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-mongoose.connect(process.env.MONGOhh_URI, {
+mongoose.connect(process.env.MONGO_URI, {
     user: process.env.MONGO_USERNAME,
     pass: process.env.MONGO_PASSWORD,
     useNewUrlParser: true,
@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGOhh_URI, {
 
 var Schema = mongoose.Schema;
 
-var dataSchema = new Schema({
+var dataSchema = new Schemaaaaa({
     name: String,
     id: Number,
     description: String,
