@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 describe('Planets API Suite', () => {
 
     describe('Fetching Planet Details', () => {
-        it('it should fetch a planet named Mercury', (done) => {
+        it('it should fetch a planet named Mercury-err', (done) => {
             let payload = {
                 id: 1
             }
@@ -21,7 +21,7 @@ describe('Planets API Suite', () => {
               .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.have.property('id').eql(1);
-                    res.body.should.have.property('name').eql('Mercury');
+                    res.body.should.have.property('name').eql('Mercury-err');
                 done();
               });
         });
