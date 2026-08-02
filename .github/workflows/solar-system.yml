@@ -1,0 +1,31 @@
+name: solar-system workflow
+
+on:
+ workflow_dispatch:
+ push:
+  branches:
+  - main:
+  - 'feature/*'
+
+jobs:
+ unit-testing:
+  name: unit testing
+  runs-on: ubuntu-latest
+  steps:
+  -  name: checkout
+     uses: actions/checkout@v7.0.1
+
+  - name: setip node
+    uses: actions/setup-node@v7
+    with:
+     node-version: 24
+    
+  - name: install npm
+    run: npm install
+
+  - name: Unit testing
+    run: npm test
+    
+  
+
+  
